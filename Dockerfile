@@ -24,7 +24,7 @@ RUN \
 	:
 
 # Don’t run Node.js apps as root
-USER node
+USER samuraijack365
 
 # Create config and app directory
 WORKDIR /usr/src/config
