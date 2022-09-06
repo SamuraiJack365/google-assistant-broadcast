@@ -54,7 +54,7 @@ function Assistant() {
           `Tokens file at path '${config.auth.savedTokensPath}' does not exist.`)
     }
 
-    const secretFileContent = readJsonFile(config.auth.keyFilePath).installed;
+    const secretFileContent = readJsonFile(config.auth.keyFilePath);
 
     if (secretFileContent.token_uri !== "https://oauth2.googleapis.com/token") {
       exitAndLogError(
