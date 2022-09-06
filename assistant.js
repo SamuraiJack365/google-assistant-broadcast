@@ -56,12 +56,12 @@ function Assistant() {
 
     const secretFileContent = readJsonFile(config.auth.keyFilePath);
 
-    if (secretFileContent.token_uri !== "https://oauth2.googleapis.com/token") {
+    if (secretFileContent.web.token_uri !== "https://oauth2.googleapis.com/token") {
       exitAndLogError(
-          `'${secretFileContent.web.token_uri}' The Client Secret file at path '${config.auth.keyFilePath}' has invalid 'token_uri' value. Expecting value 'https://oauth2.googleapis.com/token', but was '${secretFileContent.token_uri}'. Please make sure you download OAuth client file from GCP Console / API & Services / Credentials.`)
+          `'The Client Secret file at path '${config.auth.keyFilePath}' has invalid 'token_uri' value. Expecting value 'https://oauth2.googleapis.com/token', but was '${secretFileContent.web.token_uri}'. Please make sure you download OAuth client file from GCP Console / API & Services / Credentials.`)
     }
 
-    if (!secretFileContent.redirect_uris) {
+    if (!secretFileContent.web.redirect_uris) {
       exitAndLogError(
           `The Client Secret file at path '${config.auth.keyFilePath}' is missing 'redirect_uris' property. Please make sure you download OAuth client file from GCP Console / API & Services / Credentials.`)
     }
