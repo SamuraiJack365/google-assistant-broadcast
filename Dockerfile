@@ -22,10 +22,10 @@ RUN \
 	&& \
 	rm -rf /var/cache/apk/* && \
 	:
+RUN mkdir /usr/src && mkdir /usr/src/app && mkdir /usr/src/config && chown -R node /usr/src
 
 # Don’t run Node.js apps as root
 USER node
-
 # Create config and app directory
 WORKDIR /usr/src/config
 WORKDIR /usr/src/app
